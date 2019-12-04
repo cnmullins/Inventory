@@ -31,15 +31,16 @@ vector<string> listFromString(string input)
     string word = "";
     for (int i = 0; i < input.length(); i++)
     {
-        if (input[i] != ',' || input[i] != ' ')
+        if (isalpha(input.at(i)))
         {
             word.append(1, input[i]);
         }
-        else
+        else if (input.at(i) == ',')
         {
             output.push_back(word);
             word = "";
         }
     }
+    output.push_back(word);
     return output;
 }
